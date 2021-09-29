@@ -25,6 +25,7 @@ cd ~/dotfiles
 cp neovim/neovimConfig ~/.config/nvim/init.vim
 
 cd
+echo "alias vim=\"nvim\"" >> .bashrc
 echo "alias g-d=\"git diff\"" >> .bashrc
 echo "alias g-dh=\"git diff HEAD\"" >> .bashrc
 echo "alias g-s=\"git status\"" >> .bashrc
