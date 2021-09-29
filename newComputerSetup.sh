@@ -16,7 +16,17 @@ sudo snap install discord
 sudo snap install spotify
 sudo snap install --classic code
 sudo apt-get -y install firefox
+
+# Neovim setup
+sudo apt-get -y install neovim
+cd ~/.config
+mkdir nvim
+cd ~/dotfiles
+cp neovim/neovimConfig ~/.config/nvim/init.vim
+
 cd
+echo "alias g-d=\"git diff\"" >> .bashrc
+echo "alias g-dh=\"git diff HEAD\"" >> .bashrc
 echo "alias g-s=\"git status\"" >> .bashrc
 echo "alias g-pl=\"git pull\"" >> .bashrc
 echo "alias g-ps=\"git push\"" >> .bashrc
