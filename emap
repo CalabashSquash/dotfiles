@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# emap: escape map. Map capslock to escape
+
+setxkbmap -option caps:escape

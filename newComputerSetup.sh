@@ -1,9 +1,12 @@
 #!/bin/bash
 
+sudo cp emap /usr/bin/
+
 cd
 sudo apt-get update
 sudo apt-get -y install i3
 sudo apt-get -y install git
+git config --global core.editor "nvim"
 mkdir ~/.config # Probably already exists. That is fine
 cd ~/.config
 mkdir i3
