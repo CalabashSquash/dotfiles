@@ -2,8 +2,8 @@
 
 cd
 sudo apt-get update
-sudo apt-get install i3
-sudo apt-get install git
+sudo apt-get -y install i3
+sudo apt-get -y install git
 mkdir ~/.config # Probably already exists. That is fine
 cd ~/.config
 mkdir i3
@@ -11,11 +11,11 @@ cd ~/dotfiles
 cp i3/config ~/.config/i3/
 sudo apt-get -y install python3-pip
 sudo apt-get -y install python3
-sudo apt-get install redshift
+sudo apt-get -y install redshift
 sudo snap install discord
 sudo snap install spotify
 sudo snap install --classic code
-sudo apt install firefox
+sudo apt-get -y install firefox
 cd
 echo "alias g-s=\"git status\"" >> .bashrc
 echo "alias g-pl=\"git pull\"" >> .bashrc
