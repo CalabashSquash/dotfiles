@@ -7,7 +7,6 @@ sudo apt-get update
 sudo apt install pavucontrol
 sudo apt-get -y install i3
 sudo apt-get -y install git
-git config --global core.editor "nvim"
 mkdir ~/.config # Probably already exists. That is fine
 cd ~/.config
 mkdir i3
@@ -27,6 +26,7 @@ cd ~/.config
 mkdir nvim
 cd ~/dotfiles
 cp neovim/neovimConfig ~/.config/nvim/init.vim
+git config --global core.editor "nvim"
 
 cd
 echo "alias vim=\"nvim\"" >> .bashrc
