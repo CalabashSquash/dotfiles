@@ -31,6 +31,12 @@ cd ~/dotfiles
 cp neovim/neovimConfig ~/.config/nvim/init.vim
 git config --global core.editor "nvim"
 
+# Screen layout (monitors)
+# use arandr/xrandr to fix
+# sudo apt install arandr
+mkdir ~/.screenlayout
+cp LAYOUT.sh ~/.screenlayout/
+
 cd
 echo "alias vim=\"nvim\"" >> .bashrc
 echo "alias g-d=\"git diff\"" >> .bashrc
