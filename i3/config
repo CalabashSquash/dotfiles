@@ -34,6 +34,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# Background Doesn't work
+# feh no-startup-id /home/mynameuhh/Downloads/og_runey.jpg
+
 
 set $urgent-bg-color 	#E53935
 set $text-color 	#f3f4f5
@@ -135,8 +138,9 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Firefox"] $workspace1
+assign [class="firefox"] $workspace1
 assign [class="Gnome-terminal"] $workspace2
-assign [class="Code"] $workspace2
+assign [class="Code"] $workspace3
 assign [class="Anki"] $workspace3
 assign [class="Evince"] $workspace3
 assign [class="Evince"] $workspace3
@@ -148,6 +152,7 @@ assign [class="gnome-text-editor"] $workspace8
 assign [class="Spotify"] $workspace10
 assign [class="spotify"] $workspace10
 assign [class="Spotify Premium"] $workspace10
+assign [class="ffplay"] $workspace10
 
 
 # reload the configuration file
@@ -165,16 +170,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 20 px or 20 ppt
+        bindsym k resize grow height 20 px or 20 ppt
+        bindsym l resize shrink height 20 px or 20 ppt
+        bindsym semicolon resize grow width 20 px or 20 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -193,14 +198,25 @@ exec --no-startup-id gnome-calculator
 bindsym $mod+u [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
 bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
 
-for_window [instance="discord"] floating enable
-for_window [instance="discord"] resize set 1900 1050
-for_window [instance="discord"] move scratchpad
-for_window [instance="discord"] border pixel 5
-exec --no-startup-id discord 
+# RuneLite
+# for_window [instance="net-runelite-launcher-Launcher"] floating enable
+# for_window [instance="net-runelite-launcher-Launcher"] resize set 625 400
+# for_window [instance="net-runelite-launcher-Launcher"] move scratchpad
+# for_window [instance="net-runelite-launcher-Launcher"] border pixel 5
+# exec --no-startup-id net-runelite-launcher-Launcher
 
-bindsym $mod+i [instance="discord"] scratchpad show; [instance="discord"] move position center
-bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
+# bindsym $mod+grave [instance="net-runelite-launcher-Launcher"] scratchpad show; [instance="net-runelite-launcher-Launcher"] move position center
+# bindsym $mod+Shift+grave [instance="net-runelite-launcher-Launcher"] floating toggle;
+# bindsym $mod+Shift+u resize shrink height 100 px or 100 ppt
+
+#for_window [instance="discord"] floating enable
+#for_window [instance="discord"] resize set 1900 1050
+# for_window [instance="discord"] move scratchpad
+# for_window [instance="discord"] border pixel 5
+#exec --no-startup-id discord 
+
+# bindsym $mod+i [instance="discord"] scratchpad show; [instance="discord"] move position center
+# bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
 
 for_window [instance="slack"] floating enable
 for_window [instance="slack"] resize set 1700 1000
@@ -219,6 +235,7 @@ exec_always spotify
 
  bindsym $mod+m [instance="spotify"] scratchpad show; [instance="spotify"] move position center
  bindsym $mod+Shift+m resize shrink height 10 px or 10 ppt
+
 
 
 #defaults
@@ -245,7 +262,8 @@ hide_edge_borders both
 #}
 
 bar {
-        status_command i3status
+        #status_command i3status
+        status_command TZ=Australia/Sydney i3status
 }
 
 #bar {
@@ -310,9 +328,11 @@ mode "$mode_launcher" {
 exec gnome-text-editor ~/TODO
 exec --no-startup-id ~/.screenlayout/monitor_on_left.sh
 exec --no-startup-id code
+exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id emap
 
 # xrandr --output eDP --primary --mode 1920x1080 --pos 1938x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off --output DisplayPort-0 --off
+# xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --mode 1920x1080 --pos 0x0 --rotate normal
 
 # xprop to find  class
 
@@ -321,7 +341,7 @@ bindsym $mod+b mode "$mode_redshift"
 set $mode_redshift Set colour temperature: (a)uto, (r)eset, (2)500K, (3)000K, (4)000K, (5)000K
 set $kill_redshift pkill -9 redshift;
 mode "$mode_redshift" {
-    bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 5000:3000", mode "default"
+    bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 5000:2500", mode "default"
     bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
     bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 2500", mode "default"
     bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
@@ -332,3 +352,5 @@ mode "$mode_redshift" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+default_orientation horizontal

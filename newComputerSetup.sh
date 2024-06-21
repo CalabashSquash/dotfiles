@@ -4,6 +4,9 @@ sudo cp emap /usr/bin/
 
 cd
 sudo apt-get update
+sudo apt install npm
+sudo npm install -g yarn
+sudo apt install curl
 sudo apt install pavucontrol
 sudo apt-get -y install i3
 sudo apt-get -y install git
@@ -37,5 +40,6 @@ echo "alias g-pl=\"git pull\"" >> .bashrc
 echo "alias g-ps=\"git push\"" >> .bashrc
 echo "alias g-c=\"git commit\"" >> .bashrc
 echo "alias g-full=\"git add -u && git commit && git push\"" >> .bashrc
+echo "alias g-fop=\"git fetch origin --prune\"" >> .bashrc
 source .bashrc
 
