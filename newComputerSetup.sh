@@ -39,6 +39,7 @@ cp LAYOUT.sh ~/.screenlayout/
 
 cd
 echo "alias vim=\"nvim\"" >> .bashrc
+echo "alias g-a=\"git add\"" >> .bashrc
 echo "alias g-d=\"git diff\"" >> .bashrc
 echo "alias g-dh=\"git diff HEAD\"" >> .bashrc
 echo "alias g-s=\"git status\"" >> .bashrc
@@ -49,3 +50,5 @@ echo "alias g-full=\"git add -u && git commit && git push\"" >> .bashrc
 echo "alias g-fop=\"git fetch origin --prune\"" >> .bashrc
 source .bashrc
 
+
+# Also go into vscode -> File -> preferences -> settings -> search "dispatch" and change to "keyCode"
